@@ -1,8 +1,6 @@
-//Colors
-$color-blue-first: rgba(30, 144, 255, 1);
-$color-blue-second: rgba(0, 0, 128, 1);
-
-$color-white: #fff;
-$color-black: #000;
-
-$enable-gradients: true;
+.canvas {
+  border: 1px solid #244752;
+  margin: 10px;
+  height: 500px;
+  width: 800px;
+}
