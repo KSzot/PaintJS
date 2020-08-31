@@ -1,6 +1,18 @@
 .canvas {
   border: 1px solid #244752;
   margin: 10px;
-  height: 500px;
-  width: 800px;
+  //height: 500px;
+  //width: 560px;
+}
+
+.btn-mine {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  @media only screen and (max-width: 576px) {
+    display: inline-block;
+    //width: 20%;
+    width: auto;
+    margin: 1rem;
+  }
 }

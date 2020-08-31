@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpack = require('webpack');
 module.exports = {
   entry: {
     app: ['@babel/polyfill', './src/js/index.js'],
@@ -15,11 +14,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'MyBoilerplate',
       template: './src/index.html',
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        API_KEY: JSON.stringify('f30793fd772f84afa995e547c27ddbcf'),
-      },
     }),
   ],
   output: {
