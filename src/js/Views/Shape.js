@@ -1,8 +1,11 @@
+import PubSub from 'pubsub-js';
 export class Shape {
-  constructor(size, color) {
-    this.size = size || 16;
-    this.color = color || 'red';
+  constructor(size) {
+    this.size = size || 5;
     this.isDrawing = false;
+    PubSub.subscribe('resize', (tag, data) => {
+      this.size = data.size;
+    });
   }
 
   onMouseMove(x, y, ctx) {

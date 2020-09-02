@@ -1,3 +1,5 @@
+import PubSub from 'pubsub-js';
+import { Pencil } from './Pencil';
 export class BoardDrawingUI {
   constructor(container, width, height) {
     this.attachCanvas(container, this.createCanvas(width, height));
@@ -12,24 +14,25 @@ export class BoardDrawingUI {
     canvas.height = height;
 
     canvas.addEventListener('mousedown', (event) => {
-      this.currentTool.onMouseDown();
+      if (this.currentTool) this.currentTool.onMouseDown();
     });
 
     canvas.addEventListener('mousemove', (event) => {
+      // if (this.currentTool)
       this.currentTool.onMouseMove(event.offsetX, event.offsetY, ctx);
     });
 
     canvas.addEventListener('mouseup', (event) => {
-      this.currentTool.onMouseUp(ctx);
+      if (this.currentTool) this.currentTool.onMouseUp(ctx);
     });
     return canvas;
   }
   attachCanvas(container, canvas) {
-    console.log(container);
     document.querySelector(container).appendChild(canvas);
   }
 
   changeTools(tool) {
+    console.dir(tool);
     this.currentTool = tool;
   }
 }

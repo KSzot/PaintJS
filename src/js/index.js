@@ -1,5 +1,4 @@
 import 'bootstrap';
-import $ from 'jquery';
 import { ToolsUI } from './Views/ToolsUI';
 import { ToolsFactory } from './Views/ToolsFactory';
 import { BoardDrawingUI } from './Views/BoardDrawingUI';
@@ -9,15 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const tools = new ToolsUI();
   const factory = new ToolsFactory();
   const board = new BoardDrawingUI('.col-sm-8.col-md-10.col-lg-7', 350, 350);
+
   tools.subscribe((selectedTool) => {
     const tool = factory.getTools(selectedTool);
     console.log(tool);
     board.changeTools(tool);
   });
 });
-
-// document.querySelectorAll('.dropdown-item').forEach((element) => {
-//   element.addEventListener('click', (event) => {
-//     console.log(event.target.textContent);
-//   });
-// });

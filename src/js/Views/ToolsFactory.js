@@ -1,24 +1,24 @@
 import { Pencil } from './Pencil';
 import { Rubber } from './Rubber';
+import PubSub from 'pubsub-js';
 export class ToolsFactory {
   constructor() {
-    this.color = null;
-    this.pencil = new Pencil(10, this.color);
-    this.rubber = new Rubber(5);
+    PubSub.subscribe('resize', (tag, data) => {
+      this.size = data.size;
+    });
+    PubSub.subscribe('changeColor', (tag, data) => {
+      this.color = data.color;
+    });
   }
 
-  getTools(tool) {
-    //this.getColor();
-    switch (tool) {
+  getTools(name) {
+    switch (name) {
       case 'Pencil':
-        return this.pencil;
+        return new Pencil(this.size, this.color);
       case 'Brush':
         return this.pencil;
       case 'Rubber':
-        return this.rubber;
+        return new Rubber(this.size);
     }
-  }
-  getColor() {
-    this.color = document.querySelector('p').textContent;
   }
 }
