@@ -23,8 +23,8 @@ export class BoardDrawingUI {
     });
 
     canvas.addEventListener('mousemove', (event) => {
-      // if (this.currentTool)
-      this.currentTool.onMouseMove(event.offsetX, event.offsetY, ctx, ctx2);
+      if (this.currentTool)
+        this.currentTool.onMouseMove(event.offsetX, event.offsetY, ctx, ctx2);
     });
 
     canvas.addEventListener('mouseup', (event) => {

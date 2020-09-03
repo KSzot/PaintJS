@@ -32,6 +32,7 @@ export class ToolsUI {
     this.container.appendChild(this.createButton('Pencil'));
     this.container.appendChild(this.createButton('Rubber'));
     this.container.appendChild(this.createButton('Line'));
+    this.container.appendChild(this.createButton('Rectangle'));
   }
   subscribe(subscriber) {
     this.subscribers.push(subscriber);

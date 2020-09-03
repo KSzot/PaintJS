@@ -1,6 +1,7 @@
 import { Pencil } from './Pencil';
 import { Rubber } from './Rubber';
 import { Line } from './Line';
+import { Rectangle } from './Rectangle';
 import PubSub from 'pubsub-js';
 export class ToolsFactory {
   constructor() {
@@ -20,6 +21,8 @@ export class ToolsFactory {
         return new Line(this.size, this.color);
       case 'Rubber':
         return new Rubber(this.size);
+      case 'Rectangle':
+        return new Rectangle(this.size, this.color);
     }
   }
 }
