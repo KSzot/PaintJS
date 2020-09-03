@@ -1,5 +1,6 @@
 import { Pencil } from './Pencil';
 import { Rubber } from './Rubber';
+import { Line } from './Line';
 import PubSub from 'pubsub-js';
 export class ToolsFactory {
   constructor() {
@@ -15,8 +16,8 @@ export class ToolsFactory {
     switch (name) {
       case 'Pencil':
         return new Pencil(this.size, this.color);
-      case 'Brush':
-        return this.pencil;
+      case 'Line':
+        return new Line(this.size, this.color);
       case 'Rubber':
         return new Rubber(this.size);
     }
