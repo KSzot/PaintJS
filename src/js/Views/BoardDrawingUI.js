@@ -38,7 +38,6 @@ export class BoardDrawingUI {
   }
 
   changeTools(tool) {
-    console.dir(tool);
     this.currentTool = tool;
   }
 }

@@ -14,8 +14,10 @@ export class ToolsUI {
     this.initValue();
     this.changeColor();
   }
-  createButton(name) {
+  createButton(name, first, second, third, fourth) {
     const btn = document.createElement('button');
+    const fontA = document.createElement('i');
+    fontA.classList.add(first, second, third, fourth);
     btn.textContent = name;
     btn.setAttribute('type', 'button');
     //btn.setAttribute('data-tool', selector);
@@ -26,15 +28,34 @@ export class ToolsUI {
         el(name);
       });
     });
+    btn.insertAdjacentElement('afterbegin', fontA);
     return btn;
   }
   createButtons() {
-    this.container.appendChild(this.createButton('Pencil'));
-    this.container.appendChild(this.createButton('Rubber'));
-    this.container.appendChild(this.createButton('Line'));
-    this.container.appendChild(this.createButton('Rectangle'));
-    this.container.appendChild(this.createButton('Circle'));
-    this.container.appendChild(this.createButton('Triangle'));
+    this.container.appendChild(
+      this.createButton('Pencil', 'fas', 'fa-pen', 'fa-lg', 'mr-2'),
+    );
+    this.container.appendChild(
+      this.createButton('Rubber', 'fas', 'fa-eraser', 'fa-lg', 'mr-2'),
+    );
+    this.container.appendChild(
+      this.createButton(
+        'Line',
+        'fas',
+        'fa-grip-lines-vertical',
+        'fa-lg',
+        'mr-2',
+      ),
+    );
+    this.container.appendChild(
+      this.createButton('Rectangle', 'fas', 'fa-square', 'fa-lg', 'mr-2'),
+    );
+    this.container.appendChild(
+      this.createButton('Circle', 'fas', 'fa-circle', 'fa-lg', 'mr-2'),
+    );
+    this.container.appendChild(
+      this.createButton('Triangle', 'fas', 'fa-caret-up', 'fa-lg', 'mr-2'),
+    );
   }
   subscribe(subscriber) {
     this.subscribers.push(subscriber);
