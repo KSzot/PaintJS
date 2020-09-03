@@ -1,6 +1,6 @@
-import PubSub from 'pubsub-js';
 import { Shape } from './Shape';
-export class Circle extends Shape {
+import PubSub from 'pubsub-js';
+export class Triangle extends Shape {
   constructor(size, color) {
     super(size);
     this.color = color;
@@ -8,6 +8,7 @@ export class Circle extends Shape {
       this.color = data.color;
     });
   }
+
   onMouseMove(x, y, ctx, ctx2) {
     if (this.isDrawing) {
       ctx2.clearRect(0, 0, 350, 350);
@@ -16,10 +17,9 @@ export class Circle extends Shape {
       ctx2.lineJoin = 'round';
       ctx2.lineCap = 'round';
       ctx2.strokeStyle = this.color;
-      const r = Math.sqrt(
-        Math.pow(x - this.startX, 2) + Math.pow(y - this.startY, 2),
-      );
-      ctx2.arc(this.startX, this.startY, r, 0, 2 * Math.PI);
+      ctx2.moveTo(this.startX, this.startY);
+      ctx2.lineTo(x, y);
+      ctx2.lineTo(this.startX - (x - this.startX), y);
       ctx2.closePath();
       ctx2.stroke();
     }
@@ -38,6 +38,7 @@ export class Circle extends Shape {
       ctx.beginPath();
       this.startX = x;
       this.startY = y;
+      ctx.moveTo(this.startX, this.startY);
       ctx.lineWidth = this.size;
       ctx.lineJoin = 'round';
       ctx.lineCap = 'round';

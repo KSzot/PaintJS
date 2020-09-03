@@ -3,6 +3,7 @@ import { Rubber } from './Rubber';
 import { Line } from './Line';
 import { Rectangle } from './Rectangle';
 import { Circle } from './Circle';
+import { Triangle } from './Triangle';
 import PubSub from 'pubsub-js';
 export class ToolsFactory {
   constructor() {
@@ -26,6 +27,8 @@ export class ToolsFactory {
         return new Rectangle(this.size, this.color);
       case 'Circle':
         return new Circle(this.size, this.color);
+      case 'Triangle':
+        return new Triangle(this.size, this.color);
     }
   }
 }
