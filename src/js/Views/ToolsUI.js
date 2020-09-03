@@ -3,7 +3,7 @@ import PubSub from 'pubsub-js';
 export class ToolsUI {
   constructor() {
     this.container = document.querySelector(
-      '.col-sm-4.col-md-2.col-lg-2.border.border-primary.text-center',
+      '.col-sm-4.col-md-2.col-lg-2.text-center',
     );
     this.sizeElm = document.querySelector('#paintSize');
     this.sizeDisplay = document.querySelector('.paint-size-val');
